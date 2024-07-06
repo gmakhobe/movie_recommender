@@ -1,0 +1,88 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+MovieRecommender/*~
+MovieRecommender/*.sw[mnpcod]
+MovieRecommender/.tmp
+MovieRecommender/*.tmp
+MovieRecommender/*.tmp.*
+MovieRecommender/UserInterfaceState.xcuserstate
+MovieRecommender/$RECYCLE.BIN/
+
+MovieRecommender/*.log
+MovieRecommender/log.txt
+
+
+MovieRecommender/.sourcemaps
+MovieRecommender/.versions
+MovieRecommender/coverage
+
+# Ionic
+MovieRecommender/.ionic
+MovieRecommender/www
+MovieRecommender/platforms
+MovieRecommender/plugins
+
+# Compiled output
+MovieRecommender/dist
+MovieRecommender/tmp
+MovieRecommender/out-tsc
+MovieRecommender/bazel-out
+
+# Node
+MovieRecommender/node_modules
+MovieRecommender/npm-debug.log
+MovieRecommender/yarn-error.log
+
+# IDEs and editors
+MovieRecommender/.idea/
+MovieRecommender/.project
+MovieRecommender/.classpath
+MovieRecommender/.c9/
+MovieRecommender/*.launch
+MovieRecommender/.settings/
+MovieRecommender/*.sublime-project
+MovieRecommender/*.sublime-workspace
+
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+MovieRecommender/.vscode/*
+MovieRecommender/!.vscode/settings.json
+MovieRecommender/!.vscode/tasks.json
+MovieRecommender/!.vscode/launch.json
+MovieRecommender/!.vscode/extensions.json
+MovieRecommender/.history/*
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+
+# Miscellaneous
+MovieRecommender/.angular
+MovieRecommender/.angular/cache
+MovieRecommender/.sass-cache/
+MovieRecommender/.nx
+MovieRecommender/.nx/cache
+MovieRecommender/connect.lock
+MovieRecommender/coverage
+MovieRecommender/libpeerconnection.log
+MovieRecommender/testem.log
+MovieRecommender/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+PHP-server/themoviedb.env

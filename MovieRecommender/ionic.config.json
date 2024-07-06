@@ -1,0 +1,7 @@
+{
+  "name": "MovieRecommender",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
