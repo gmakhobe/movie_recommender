@@ -11,6 +11,18 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'movie-details/:title/:overview/:backdrop_path/:release_date/:vote_average',
+    loadChildren: () => import('./movie-details/movie-details.module').then( m => m.MovieDetailsPageModule)
+  },
+  {
+    path: 'movie-search-results/:referer',
+    loadChildren: () => import('./movie-search-results/movie-search-results.module').then( m => m.MovieSearchResultsPageModule)
+  },
+  {
+    path: 'movie-favourates',
+    loadChildren: () => import('./movie-favourates/movie-favourates.module').then( m => m.MovieFavouratesPageModule)
+  },
 ];
 
 @NgModule({

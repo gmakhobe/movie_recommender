@@ -6,13 +6,16 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   declarations: [HomePage]
 })

@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle$ }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title size="large">{{ pageTitle$ }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+    <div class="movies-container" *ngFor="let item of newMovieList$" [routerLink]="['/movie-details', item.title, item.overview, item.backdrop_path, item.release_date, item.vote_average]">
+      <ion-img alt="images" [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + item.poster_path"></ion-img>
+      <h1>{{ item.title }}</h1>
+      <div *ngIf="item.isFavourate; else elseBlock">
+        <ion-icon name="heart-sharp" size="large"></ion-icon>
+      </div>
+      <ng-template #elseBlock>
+        <ion-icon name="heart-outline" size="large"></ion-icon>
+      </ng-template>
+      <p>Rating: {{ item.vote_average }} <br />Date: {{ item.release_date }}</p>
+    </div>
+
+</ion-content>

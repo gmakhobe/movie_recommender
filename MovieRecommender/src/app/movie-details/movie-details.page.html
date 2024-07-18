@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Movie Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title size="large">Movie Details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="movie-container">
+    <ion-img
+      [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movieBackdrop_path$"
+      alt="Image"
+    ></ion-img>
+    <h1>{{ movieTitle$ }}</h1>
+    <p>
+      Movies rating: {{ movieVote_average$ }}<br />Release Date: {{
+      movieRelease_date$ }}
+    </p>
+
+    <div *ngIf="isSelectedMovieFavourate$; else elseBlock">
+      <ion-icon
+        name="heart-sharp"
+        size="large"
+        (click)="removeFromFavourates()"
+      ></ion-icon>
+    </div>
+    <ng-template #elseBlock>
+      <ion-icon
+        name="heart-outline"
+        size="large"
+        (click)="addToFavourates()"
+      ></ion-icon>
+    </ng-template>
+
+    <p>{{ movieOverview$ }}</p>
+  </div>
+</ion-content>

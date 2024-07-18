@@ -1,20 +1,137 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Recommender </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Recommender</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="three-movies-container">
+    <h1>Popular Movies</h1>
+    <div *ngIf="(popularMoviesCount$ | async)" class="three-movies-container">
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            *ngFor="let item of threePopularMovies$ | async"
+            [routerLink]="['/movie-details', item.title, item.overview, item.backdrop_path, item.release_date, item.vote_average]"
+          >
+            <ion-img
+              [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + item.poster_path"
+              alt="Image"
+            >
+            </ion-img>
+            <p>
+              <strong>{{ item.title }}</strong> <br />Rating: {{
+              item.vote_average}} <br />Date: {{ item.release_date}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="more-movies">
+        <ion-button [routerLink]="['/movie-search-results', 1]">
+          More <ion-icon name="arrow-forward"></ion-icon
+        ></ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="three-movies-container">
+    <h1>Top Rated Movies</h1>
+
+    <div *ngIf="(topratedMoviesCount$ | async)" class="three-movies-container">
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            *ngFor="let item_toprated of threeTopratedMovies$ | async"
+            [routerLink]="['/movie-details', item_toprated.title, item_toprated.overview, item_toprated.backdrop_path, item_toprated.release_date, item_toprated.vote_average]"
+          >
+            <ion-img
+              [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + item_toprated.poster_path"
+              alt="Image"
+            >
+            </ion-img>
+            <p>
+              <strong>{{ item_toprated.title }}</strong> <br />Rating: {{
+              item_toprated.vote_average}} <br />Date: {{
+              item_toprated.release_date}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="more-movies">
+        <ion-button [routerLink]="['/movie-search-results', 2]">
+          More <ion-icon name="arrow-forward"></ion-icon
+        ></ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="three-movies-container">
+    <h1>Upcoming Movies</h1>
+
+    <div *ngIf="(upcomingMoviesCount$ | async)" class="three-movies-container">
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            *ngFor="let item_upcoming of threeUpcomingMovies$ | async"
+            [routerLink]="['/movie-details', item_upcoming.title, item_upcoming.overview, item_upcoming.backdrop_path, item_upcoming.release_date, item_upcoming.vote_average]"
+          >
+            <ion-img
+              [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + item_upcoming.poster_path"
+              alt="Image"
+            >
+            </ion-img>
+            <p>
+              <strong>{{ item_upcoming.title }}</strong> <br />Rating: {{
+              item_upcoming.vote_average}} <br />Date: {{
+              item_upcoming.release_date}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="more-movies">
+        <ion-button [routerLink]="['/movie-search-results', 3]">
+          More <ion-icon name="arrow-forward"></ion-icon
+        ></ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="three-movies-container">
+    <div *ngIf="(favourateMoviesCount$ | async)">
+      <h1>Favourate Movies</h1>
+
+      <div class="three-movies-container">
+        <ion-grid>
+          <ion-row>
+            <ion-col
+              *ngFor="let item_favourate of threeFavourateMovies$ | async"
+              [routerLink]="['/movie-details', item_favourate.title, item_favourate.overview, item_favourate.backdrop_path, item_favourate.release_date, item_favourate.vote_average]"
+            >
+              <ion-img
+                [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + item_favourate.poster_path"
+                alt="Image"
+              >
+              </ion-img>
+              <p>
+                <strong>{{ item_favourate.title }}</strong> <br />Rating: {{
+                item_favourate.vote_average}} <br />Date: {{
+                item_favourate.release_date}}
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div class="more-movies">
+          <ion-button [routerLink]="['/movie-search-results', 4]">
+            More <ion-icon name="arrow-forward"></ion-icon
+          ></ion-button>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>
